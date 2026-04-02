@@ -5,9 +5,9 @@ This repository is the canonical source of truth for all Alitu Help Center artic
 ## Key paths
 
 - `articles/` - All knowledge base articles (HTML with metadata headers)
-- `style-guides/article-style-guide.md` - House style for writing articles
 - `skills/` - Shared skill definitions (tool-agnostic)
   - `kb-article-writing/` - Drafting and revising articles in house style
+    - `references/article-style-guide.md` - Primary writing reference for article house style
   - `kb-gif-capture/` - Capturing screenshots and GIFs from product flows
   - `kb-sync/` - Syncing articles to Intercom
   - `kb-preview/` - Local preview server for browsing articles
@@ -29,5 +29,5 @@ Each article is an HTML file with an HTML comment header containing metadata fie
 - When editing articles, preserve the metadata comment header format exactly.
 - The `id` field links the local file to its Intercom counterpart - never change it.
 - Use the `kb-sync` skill to push changes to Intercom after editing.
-- Follow `style-guides/article-style-guide.md` when writing or editing article content.
+- Follow `skills/kb-article-writing/references/article-style-guide.md` when writing or editing article content.
 - Use the `kb-preview` skill to preview articles locally before syncing (`node skills/kb-preview/resources/server.js` on port 4100).

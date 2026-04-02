@@ -6,7 +6,6 @@ This is the canonical knowledge base for Alitu. All Help Center articles are mai
 
 ```
 articles/          # All knowledge base articles (HTML)
-style-guides/      # Writing style guides for articles
 skills/            # Shared skill definitions (tool-agnostic)
 .claude/skills/    # Claude Code wrappers (reference shared skills)
 .codex/skills/     # Codex wrappers (reference shared skills)
@@ -78,4 +77,4 @@ Defaults to `articles/` on port `4100`. Open `http://localhost:4100` to browse, 
 
 ## Writing new articles
 
-See `style-guides/article-style-guide.md` for the house style. New articles should follow the same HTML + metadata format and be synced to Intercom using the skill.
+See `skills/kb-article-writing/references/article-style-guide.md` for the house style. New articles should follow the same HTML + metadata format and be synced to Intercom using the skill.

@@ -16,7 +16,8 @@ The default assumption is:
 
 Start here:
 
-- [`style-guides/article-style-guide.md`](../../style-guides/article-style-guide.md)
+- Primary style guide:
+  [references/article-style-guide.md](./references/article-style-guide.md)
 
 Read these only when you need deeper evidence or edge-case context:
 
