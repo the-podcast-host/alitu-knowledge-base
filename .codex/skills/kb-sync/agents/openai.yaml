@@ -1,0 +1,3 @@
+interface:
+  display_name: "Sync KB"
+  short_description: "Sync knowledge base articles to Intercom"
