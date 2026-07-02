@@ -71,10 +71,24 @@ For each local article that has an `id` in its metadata, compare against the Int
 
 - **title** - compare local title vs Intercom title
 - **description** - compare local description vs Intercom description
-- **body** - compare the content between `<body>` and `</body>` tags in the local file against the Intercom article body. Before comparing, normalise both sides: collapse whitespace, and strip query-string parameters from image/asset URLs (Intercom appends transient `?expires=...&signature=...&req=...` params that change on every API call and do not represent real content changes).
+- **body** - compare the content between `<body>` and `</body>` tags in the local file against the Intercom article body, using the render-equivalence normaliser (see below).
 - **state** - compare local state (`published` or `draft`) vs Intercom state
 
 An article needs updating if ANY of these fields differ.
+
+**Body comparison — use the normaliser script, do not eyeball it.** Local files are stored prettier-formatted (readable, multi-line) while Intercom stores minified HTML. A naive whitespace collapse will report EVERY article as changed. Use `scripts/normalise-body.js`, which makes two bodies that render identically compare equal:
+
+```
+# Write the Intercom body (from get_article) to a temp file, then:
+node skills/kb-sync/scripts/normalise-body.js --compare articles/<slug>.html /tmp/intercom-body.txt
+# prints MATCH (exit 0) or DIFFER with the first divergence (exit 1)
+```
+
+The normaliser handles all known cosmetic differences between the two representations: whitespace between and inside tags (prettier's `<b\n  >` pattern), leading/trailing whitespace inside block elements, `<br />` vs `<br>`, trailing `;` stripped from inline `style="…"`, and transient `?expires=…&signature=…&req=…` params on `downloads.intercomcdn.com` asset URLs. If `--compare` says `DIFFER`, it is a **real** content change — inspect the reported divergence.
+
+**Parsing the metadata header:** match each field with a single-line pattern such as `^updated_at:[ \t]*(.*)$`. Do NOT use `\s*` after the colon — `\s` matches newlines, so an empty field (e.g. `description:` followed by `url:`) will wrongly capture the next line's value.
+
+**Image attributes are meaningful.** Intercom stores `width`/`height`/`style` on `<img>` tags. If a local body lacks them but Intercom has them, Intercom is ahead — pushing the local body would strip image sizing and (because local CDN URLs expire) can break images. Treat "local missing img attributes" as a signal to pull from Intercom, not push.
 
 Articles without an `id` in their metadata are new articles that exist only locally — flag these to the user but do not create them automatically.
 
