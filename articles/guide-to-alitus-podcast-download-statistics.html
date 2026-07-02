@@ -9,20 +9,139 @@ created_at: 1665394970
 updated_at: 1756197730
 -->
 <html>
-<head><title>Guide to Alitu's Podcast Download Statistics</title></head>
-<body>
-<p class="no-margin">If you're using Alitu's podcast hosting service, then you also have full access to our podcast download statistics. These stats give you a picture of who listens to your show, how they listen and where they're from.</p><p class="no-margin"></p>
-<p class="no-margin">Remember, when you're looking at your stats, they're a good measure of progress if you look at the trend, alone. For example, are more people listening this month than last month? But, don't get too caught up in the total numbers themselves. Every category is very different, so you can't compare one podcast with another. Read our <a href="https://www.thepodcasthost.com/planning/whats-a-good-number-of-downloads-for-a-podcast/" target="_blank" class="intercom-content-link">full article on Podcast Downloads</a> to dig deep on this, and see some examples of download numbers.</p><p class="no-margin"></p>
-<h1 id="h_11915f6103"><b>What Do We Measure as a Podcast Download?</b></h1><p class="no-margin">When your podcast is hosted with Alitu, we automatically keep track of every time anyone (or anything) downloads an episode of your podcast. But what exactly counts as a download?</p><p class="no-margin"></p>
-<p class="no-margin">Simply, a download is counted anytime your audio file is requested from Alitu. </p><p class="no-margin"></p>
-<p class="no-margin">This can happen when someone plays your episode on an embedded player or through a distribution platform such as Apple or any other podcast app (see below for note on Spotify)</p><p class="no-margin"></p>
-<p class="no-margin">It is important to note that someone many not actually listen to your podcast when it is sent to them. Someone may download an episode and listen to it later or a podcast player app might automatically download new episodes in the background. So downloads never quite translate to actual listens. Again, it’s good to focus on the trends. If your download numbers are going up over time, your audience is expanding.</p><p class="no-margin"></p>
-<h1 id="h_e55de80d7b"><b>How do we Make Sure the Numbers are Accurate?</b></h1><p class="no-margin">There are a few different 'standards' when it comes to podcast downloads. You might have heard of the IAB (Interactive Advertising Bureau) or oDL (Open Downloads). </p><p class="no-margin">These organisations or projects publish “guidelines” on how to measure a download or listen. </p><p class="no-margin">At Alitu and The Podcast Host, we're big advocates of the open podcasting ecosystem and so we strive to follow the Open Downloads specifications.</p><p class="no-margin">We use the following criteria to count downloads: Some of the measures we use to determine a “download” are:</p><ul><li><p class="no-margin">Filter out bots</p></li><li><p class="no-margin">Check IP address against an open source database (ipcat)</p></li><li><p class="no-margin">Only count download requests (HTTP GET)</p></li><li><p class="no-margin">Must request more than 2 bytes of data</p></li><li><p class="no-margin">Must be unique within the past day</p></li></ul><p class="no-margin">The above measures mean we count one download per day for each unique combination of episode, device and location (IP address). This means that if two devices play the same episode from the same location, it will still count as two downloads.</p><p class="no-margin"></p>
-<p class="no-margin">Because we track downloads from all over the world, we use the UTC timezone for our statistics. Whether a user listens in the UK, US OR Australia, we store the time of the download in UTC. We also retrieve stats based on the current time in UTC. There are 2 major implications of this:</p><ol><li><p class="no-margin">If a user downloads at 12:30 AM BST (11:30 PM UTC), the download is going to count for the previous day.</p></li><li><p class="no-margin">If a user in PDT (UTC -7) is viewing their stats anytime after 5PM, they're actually seeing stats for the following day.</p></li></ol><p class="no-margin">The internet evolves quickly and our team works hard to stay one step a head to ensure our stats are accurate. We are always looking for ways to make it easier to learn more about your audience so you can better connect with them.</p><p class="no-margin"></p>
-<h2 id="h_b131738057">Why are my Alitu stats different from those on Apple, Spotify or YouTube?</h2><p class="no-margin">As explained above there are different ways to measure statistics, there is not 1 universal podcast industry standard.</p><p class="no-margin"></p>
-<p class="no-margin">For this reason stats can appear to be slightly different across different platforms. Lets look at some examples below.</p><p class="no-margin"></p>
-<p class="no-margin"><b>Apple’s</b> dashboard stats can be different from Alitu’s. There is a simple reason for this, Apple count “listens” and Alitu counts “downloads”. Apple define a listen as <i>“The number of people that played more than zero seconds of the episode.”</i> You could therefore “listen” to an episode more times than Alitu would count as a download. Fundamentally a listen is different from a download.</p><p class="no-margin"></p>
-<p class="no-margin">Alitu’s stats do not include <b>Spotify or YouTube</b> listens or downloads. This is because Spotify and YouTube upload your podcast direct to their servers and do not pass-back the information to Alitu. So, we don’t know who has downloaded your episode unless Spotify or YouTube shares that information with us.</p><p class="no-margin"></p>
-<p class="no-margin">Using the 3 examples above we can see that distribution platforms treat their stats very differently.</p>
-</body>
+  <head>
+    <title>Guide to Alitu's Podcast Download Statistics</title>
+  </head>
+  <body>
+    <p class="no-margin">
+      If you're using Alitu's podcast hosting service, then you also have full access to our podcast
+      download statistics. These stats give you a picture of who listens to your show, how they
+      listen and where they're from.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      Remember, when you're looking at your stats, they're a good measure of progress if you look at
+      the trend, alone. For example, are more people listening this month than last month? But,
+      don't get too caught up in the total numbers themselves. Every category is very different, so
+      you can't compare one podcast with another. Read our
+      <a
+        href="https://www.thepodcasthost.com/planning/whats-a-good-number-of-downloads-for-a-podcast/"
+        target="_blank"
+        class="intercom-content-link"
+        >full article on Podcast Downloads</a
+      >
+      to dig deep on this, and see some examples of download numbers.
+    </p>
+    <p class="no-margin"></p>
+    <h1 id="h_11915f6103"><b>What Do We Measure as a Podcast Download?</b></h1>
+    <p class="no-margin">
+      When your podcast is hosted with Alitu, we automatically keep track of every time anyone (or
+      anything) downloads an episode of your podcast. But what exactly counts as a download?
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      Simply, a download is counted anytime your audio file is requested from Alitu.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      This can happen when someone plays your episode on an embedded player or through a
+      distribution platform such as Apple or any other podcast app (see below for note on Spotify)
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      It is important to note that someone many not actually listen to your podcast when it is sent
+      to them. Someone may download an episode and listen to it later or a podcast player app might
+      automatically download new episodes in the background. So downloads never quite translate to
+      actual listens. Again, it’s good to focus on the trends. If your download numbers are going up
+      over time, your audience is expanding.
+    </p>
+    <p class="no-margin"></p>
+    <h1 id="h_e55de80d7b"><b>How do we Make Sure the Numbers are Accurate?</b></h1>
+    <p class="no-margin">
+      There are a few different 'standards' when it comes to podcast downloads. You might have heard
+      of the IAB (Interactive Advertising Bureau) or oDL (Open Downloads).
+    </p>
+    <p class="no-margin">
+      These organisations or projects publish “guidelines” on how to measure a download or listen.
+    </p>
+    <p class="no-margin">
+      At Alitu and The Podcast Host, we're big advocates of the open podcasting ecosystem and so we
+      strive to follow the Open Downloads specifications.
+    </p>
+    <p class="no-margin">
+      We use the following criteria to count downloads: Some of the measures we use to determine a
+      “download” are:
+    </p>
+    <ul>
+      <li><p class="no-margin">Filter out bots</p></li>
+      <li><p class="no-margin">Check IP address against an open source database (ipcat)</p></li>
+      <li><p class="no-margin">Only count download requests (HTTP GET)</p></li>
+      <li><p class="no-margin">Must request more than 2 bytes of data</p></li>
+      <li><p class="no-margin">Must be unique within the past day</p></li>
+    </ul>
+    <p class="no-margin">
+      The above measures mean we count one download per day for each unique combination of episode,
+      device and location (IP address). This means that if two devices play the same episode from
+      the same location, it will still count as two downloads.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      Because we track downloads from all over the world, we use the UTC timezone for our
+      statistics. Whether a user listens in the UK, US OR Australia, we store the time of the
+      download in UTC. We also retrieve stats based on the current time in UTC. There are 2 major
+      implications of this:
+    </p>
+    <ol>
+      <li>
+        <p class="no-margin">
+          If a user downloads at 12:30 AM BST (11:30 PM UTC), the download is going to count for the
+          previous day.
+        </p>
+      </li>
+      <li>
+        <p class="no-margin">
+          If a user in PDT (UTC -7) is viewing their stats anytime after 5PM, they're actually
+          seeing stats for the following day.
+        </p>
+      </li>
+    </ol>
+    <p class="no-margin">
+      The internet evolves quickly and our team works hard to stay one step a head to ensure our
+      stats are accurate. We are always looking for ways to make it easier to learn more about your
+      audience so you can better connect with them.
+    </p>
+    <p class="no-margin"></p>
+    <h2 id="h_b131738057">
+      Why are my Alitu stats different from those on Apple, Spotify or YouTube?
+    </h2>
+    <p class="no-margin">
+      As explained above there are different ways to measure statistics, there is not 1 universal
+      podcast industry standard.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      For this reason stats can appear to be slightly different across different platforms. Lets
+      look at some examples below.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      <b>Apple’s</b> dashboard stats can be different from Alitu’s. There is a simple reason for
+      this, Apple count “listens” and Alitu counts “downloads”. Apple define a listen as
+      <i>“The number of people that played more than zero seconds of the episode.”</i> You could
+      therefore “listen” to an episode more times than Alitu would count as a download.
+      Fundamentally a listen is different from a download.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      Alitu’s stats do not include <b>Spotify or YouTube</b> listens or downloads. This is because
+      Spotify and YouTube upload your podcast direct to their servers and do not pass-back the
+      information to Alitu. So, we don’t know who has downloaded your episode unless Spotify or
+      YouTube shares that information with us.
+    </p>
+    <p class="no-margin"></p>
+    <p class="no-margin">
+      Using the 3 examples above we can see that distribution platforms treat their stats very
+      differently.
+    </p>
+  </body>
 </html>
